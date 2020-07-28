@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.alexander.springmvc.model.Role;
 import ru.alexander.springmvc.model.User;
+import ru.alexander.springmvc.service.RoleService;
 import ru.alexander.springmvc.service.UserService;
 
 import java.util.Collections;
@@ -21,6 +22,8 @@ import java.util.Set;
 public class AdminController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
 
     @GetMapping("/users")
@@ -43,7 +46,7 @@ public class AdminController {
         String name = user.getName();
         String password = user.getPassword();
         Set<Role> setRole = new HashSet<>();
-        Role role = new Role(1l,"ROLE_USER");
+        Role role = roleService.findByName("ROLE_USER");
         setRole.add(role);
 
         User newUser = new User(name, password, Collections.singleton(role));
@@ -68,7 +71,6 @@ public class AdminController {
     @PostMapping("/user-update")
     public String updateUser(User user) {
         userService.update(user);
-//        serviceInterface.add(user);
         return "redirect:/admin/users";
     }
 }

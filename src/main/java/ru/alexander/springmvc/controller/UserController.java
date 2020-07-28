@@ -36,54 +36,5 @@ public class UserController {
         return "user";
     }
 
-
-//    @GetMapping("/users")
-//    public String userController(Model model) {
-//        List<User> list = userService.listUsers();
-//        model.addAttribute("list", list);
-//        return "first/users";
-//    }
-//
-//    @GetMapping("/addUser")
-//    public String getAllUsers(Model model) {
-//        model.addAttribute("newUser", new User());
-//        List<User> list = userService.listUsers();
-//        model.addAttribute("users", list);
-//        return "first/addPerson";
-//    }
-//
-//    @PostMapping("/addUser")
-//    public String savePerson(Model model, User user) {
-//        String name = user.getName();
-//        String password = user.getPassword();
-//        Set<Role> setRole = new HashSet<>();
-//        Role role = new Role(1l,"ROLE_USER");
-//        setRole.add(role);
-//
-//        User newUser = new User(name, password, Collections.singleton(role));
-//        userService.add(newUser);
-//        return "redirect:/users";
-//
-//    }
-//
-//    @GetMapping("/user-delete/{id}")
-//    public String deleteUser(@PathVariable("id") Long id) {
-//        userService.deleteUser(id);
-//        return "redirect:/users";
-//    }
-//
-//    @GetMapping("/user-update/{id}")
-//    public String updateUserForm(@PathVariable("id") Long id, Model model) {
-//        User user = userService.findById(id);
-//        model.addAttribute("user", user);
-//        return "first/user-update";
-//    }
-//
-//    @PostMapping("/user-update")
-//    public String updateUser(User user) {
-//        userService.update(user);
-////        serviceInterface.add(user);
-//        return "redirect:/users";
-//    }
 }
 
